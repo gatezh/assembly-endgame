@@ -24,7 +24,10 @@ function App() {
       <Header />
       <Status />
       <Languages />
-      <Word word={currentWord} />
+      <Word
+        word={currentWord}
+        triedLetters={triedLetters}
+      />
       <Keyboard
         word={currentWord}
         triedLetters={triedLetters}
