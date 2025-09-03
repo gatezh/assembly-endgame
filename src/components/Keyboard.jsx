@@ -4,11 +4,11 @@ export default function Keyboard(props) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const letters = alphabet.split('').map(letter => {
     const isTried = props.triedLetters.includes(letter);
-    const isGuessed = isTried && props.word.includes(letter);
+    const isCorrect = isTried && props.word.includes(letter);
     const isWrong = isTried && !props.word.includes(letter);
 
     const className = clsx({
-      guessedLetter: isGuessed,
+      correctLetter: isCorrect,
       wrongLetter: isWrong
     })
 

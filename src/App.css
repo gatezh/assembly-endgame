@@ -90,7 +90,7 @@ header > p {
   cursor: pointer;
 }
 
-.keyboard button.guessedLetter {
+.keyboard button.correctLetter {
     background-color: #10A95B;
 }
 
