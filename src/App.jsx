@@ -11,12 +11,11 @@ import './App.css'
 
 function App() {
   const [currentWord, setCurrentWord] = useState('react');
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  console.log(guessedLetters);
+  const [triedLetters, setTriedLetters] = useState([]);
 
   function guessALetter(letter) {
     console.log(letter);
-    setGuessedLetters(prevLetters =>
+    setTriedLetters(prevLetters =>
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]);
   }
 
@@ -26,7 +25,11 @@ function App() {
       <Status />
       <Languages />
       <Word word={currentWord} />
-      <Keyboard onLetterPress={guessALetter} />
+      <Keyboard
+        word={currentWord}
+        triedLetters={triedLetters}
+        onLetterPress={guessALetter}
+      />
       <NewGameButton />
     </>
   )
