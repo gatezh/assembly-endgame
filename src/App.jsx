@@ -5,6 +5,7 @@ import Status from './components/Status';
 import Languages from './components/Languages';
 import Word from './components/Word';
 import Keyboard from "./components/Keyboard";
+import NewGameButton from "./components/NewGameButton";
 
 import './App.css'
 
@@ -18,6 +19,7 @@ function App() {
       <Languages />
       <Word word={currentWord} />
       <Keyboard />
+      <NewGameButton />
     </>
   )
 }
