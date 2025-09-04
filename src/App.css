@@ -15,7 +15,7 @@ header > p {
 }
 
 .status {
-  background-color: #10A95B;
+  height: 70px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,14 @@ header > p {
 .status > p {
   margin: 5px;
   margin-top: 0;
+}
+
+.status.isGameWon {
+  background-color: #10A95B;
+}
+
+.status.isGameLost {
+  background-color: #BA2A2A;
 }
 
 .languages {
