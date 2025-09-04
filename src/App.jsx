@@ -10,11 +10,19 @@ import NewGameButton from "./components/NewGameButton";
 import './App.css'
 
 function App() {
+  // State values
   const [currentWord, setCurrentWord] = useState('react');
   const [triedLetters, setTriedLetters] = useState([]);
 
+  // Derived values
+  const wrongGuessCount = triedLetters.reduce(
+    (acc, cur) => !currentWord.includes(cur) ? acc + 1 : acc,
+    0
+  );
+  console.log("wrongGuessCount");
+  console.log(wrongGuessCount);
+
   function guessALetter(letter) {
-    console.log(letter);
     setTriedLetters(prevLetters =>
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]);
   }
