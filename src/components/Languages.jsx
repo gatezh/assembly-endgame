@@ -1,14 +1,17 @@
 import { languages } from "../data/languages";
 
-export default function Languages() {
-  const languageList = languages.map(language =>
+export default function Languages(props) {
+  const languageList = languages.map((language, index) =>
   {
     const styles = {
       backgroundColor: language.backgroundColor,
       color: language.color
     };
+    const className = index < props.wrongGuessCount ? "lost" : "";
+
     return (
       <div
+        className={className}
         style={styles}
         key={language.name}
       >

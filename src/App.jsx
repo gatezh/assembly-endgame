@@ -31,7 +31,9 @@ function App() {
     <>
       <Header />
       <Status />
-      <Languages />
+      <Languages
+        wrongGuessCount={wrongGuessCount}
+      />
       <Word
         word={currentWord}
         triedLetters={triedLetters}
