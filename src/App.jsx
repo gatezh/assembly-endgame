@@ -7,6 +7,7 @@ import Word from './components/Word';
 import Keyboard from "./components/Keyboard";
 import NewGameButton from "./components/NewGameButton";
 
+import { languages } from "./data/languages";
 import './App.css'
 
 function App() {
@@ -19,8 +20,9 @@ function App() {
     (acc, cur) => !currentWord.includes(cur) ? acc + 1 : acc,
     0
   );
-  console.log("wrongGuessCount");
-  console.log(wrongGuessCount);
+  const isGameWon = currentWord.split('').every(letter => triedLetters.includes(letter));
+  const isGameLost = wrongGuessCount >= languages.length - 1;
+  const isGameOver = isGameWon | isGameLost;
 
   function guessALetter(letter) {
     setTriedLetters(prevLetters =>
@@ -43,7 +45,10 @@ function App() {
         triedLetters={triedLetters}
         onLetterPress={guessALetter}
       />
-      <NewGameButton />
+      {isGameOver
+        ? <NewGameButton />
+        : null
+      }
     </>
   )
 }
