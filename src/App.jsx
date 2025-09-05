@@ -8,12 +8,16 @@ import Keyboard from "./components/Keyboard";
 import NewGameButton from "./components/NewGameButton";
 
 import { languages } from "./data/languages";
+import { getWord } from "./utils";
 import './App.css'
 
 function App() {
   // State values
-  const [currentWord, setCurrentWord] = useState('react');
+  const [currentWord, setCurrentWord] = useState(() => getWord());
   const [triedLetters, setTriedLetters] = useState([]);
+
+  console.log("currentWord");
+  console.log(currentWord);
 
   // Derived values
   const wrongGuessCount = triedLetters.reduce(

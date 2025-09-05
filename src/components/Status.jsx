@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { languages } from "../data/languages";
-import { getFarewellText } from "../utils/getFarewellText";
+import { getFarewellText } from "../utils";
 
 export default function Status(props) {
   const className = clsx("status",
