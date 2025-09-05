@@ -10,13 +10,14 @@ header > h1 {
 
 header > p {
   font-size: 1rem;
-  max-width: 100%;
-  width: 350px;
+  /* max-width: 100%; */
+  max-width: 350px;
   color: #8E8E8E;
 }
 
 .status {
-  height: 70px;
+  min-height: 70px;
+  width: 350px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;

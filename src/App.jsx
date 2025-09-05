@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <>
+    <main>
       <Header />
       <Status
         wrongGuessCount={wrongGuessCount}
@@ -59,7 +59,7 @@ function App() {
         ? <NewGameButton />
         : null
       }
-    </>
+    </main>
   )
 }
 
