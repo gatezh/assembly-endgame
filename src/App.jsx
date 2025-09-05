@@ -49,6 +49,17 @@ function App() {
         word={currentWord}
         triedLetters={triedLetters}
       />
+      {/* a11y section */}
+      <section
+        className="sr-only"
+        aria-live="polite"
+        role="status"
+      >
+        <p>Current word: {currentWord.split("").map(letter =>
+          triedLetters.includes(letter) ? letter + "." : "blank.")
+          .join(" ")}</p>
+
+      </section>
       <Keyboard
         word={currentWord}
         triedLetters={triedLetters}
