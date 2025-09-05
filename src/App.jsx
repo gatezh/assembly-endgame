@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useWindowSize } from 'react-use';
+import Confetti from 'react-confetti';
 
 import Header from './components/Header';
 import Status from './components/Status';
@@ -28,6 +30,8 @@ function App() {
   const lastGuessedLetter = triedLetters[triedLetters.length - 1];
   const isLastGuessIncorrect = lastGuessedLetter
     && !currentWord.includes(lastGuessedLetter);
+  
+  const { width, height } = useWindowSize();
 
   function guessALetter(letter) {
     setTriedLetters(prevLetters =>
@@ -41,6 +45,12 @@ function App() {
 
   return (
     <main>
+      {isGameWon &&
+        <Confetti
+          width={width}
+          height={height}
+        />
+      }
       <Header />
       <Status
         wrongGuessCount={wrongGuessCount}
