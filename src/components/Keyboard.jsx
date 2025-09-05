@@ -9,18 +9,22 @@ export default function Keyboard(props) {
 
     const className = clsx({
       correctLetter: isCorrect,
-      wrongLetter: isWrong
+      wrongLetter: isWrong,
+      disabled: props.isGameOver
     })
 
-    return (<button
-      key={letter}
-      className={className}
-      onClick={() => {
-        props.onLetterPress(letter);
-      }}
-    >
-      {letter.toUpperCase()}
-    </button>);
+    return (
+      <button
+        disabled={props.isGameOver}
+        key={letter}
+        className={className}
+        onClick={() => {
+          props.onLetterPress(letter);
+        }}
+      >
+        {letter.toUpperCase()}
+      </button>
+    );
   }
   );
   return (

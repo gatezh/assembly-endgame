@@ -53,6 +53,7 @@ function App() {
         word={currentWord}
         triedLetters={triedLetters}
         onLetterPress={guessALetter}
+        isGameOver={isGameOver}
       />
       {isGameOver
         ? <NewGameButton />
