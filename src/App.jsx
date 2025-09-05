@@ -16,9 +16,6 @@ function App() {
   const [currentWord, setCurrentWord] = useState(() => getWord());
   const [triedLetters, setTriedLetters] = useState([]);
 
-  console.log("currentWord");
-  console.log(currentWord);
-
   // Derived values
   const wrongGuessCount = triedLetters.reduce(
     (acc, cur) => !currentWord.includes(cur) ? acc + 1 : acc,
@@ -35,6 +32,11 @@ function App() {
   function guessALetter(letter) {
     setTriedLetters(prevLetters =>
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]);
+  }
+
+  function resetGame() {
+    setCurrentWord(getWord());
+    setTriedLetters([]);
   }
 
   return (
@@ -79,7 +81,9 @@ function App() {
         isGameOver={isGameOver}
       />
       {isGameOver
-        ? <NewGameButton />
+        ? <NewGameButton
+          onClick={resetGame}
+        />
         : null
       }
     </main>

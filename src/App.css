@@ -16,8 +16,8 @@ header > p {
 }
 
 .status {
-  min-height: 70px;
   width: 350px;
+  height: 70px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -45,10 +45,12 @@ header > p {
 
 .status.isGameWon {
   background-color: #10A95B;
+  border: none;
 }
 
 .status.isGameLost {
   background-color: #BA2A2A;
+  border:none;
 }
 
 .languages {
