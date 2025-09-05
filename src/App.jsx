@@ -23,6 +23,9 @@ function App() {
   const isGameWon = currentWord.split('').every(letter => triedLetters.includes(letter));
   const isGameLost = wrongGuessCount >= languages.length - 1;
   const isGameOver = isGameWon | isGameLost;
+  const lastGuessedLetter = triedLetters[triedLetters.length - 1];
+  const isLastGuessIncorrect = lastGuessedLetter
+    && !currentWord.includes(lastGuessedLetter);
 
   function guessALetter(letter) {
     setTriedLetters(prevLetters =>
@@ -33,6 +36,8 @@ function App() {
     <>
       <Header />
       <Status
+        wrongGuessCount={wrongGuessCount}
+        isLastGuessIncorrect={isLastGuessIncorrect}
         isGameWon={isGameWon}
         isGameLost={isGameLost}
         isGameOver={isGameOver}

@@ -1,13 +1,24 @@
 import clsx from "clsx";
+import { languages } from "../data/languages";
+import { getFarewellText } from "../utils/getFarewellText";
 
 export default function Status(props) {
   const className = clsx("status",
     {
       isGameWon: props.isGameWon,
-      isGameLost: props.isGameLost
+      isGameLost: props.isGameLost,
+      farewell: props.isLastGuessIncorrect,
     });
   
   function gameStatusMessage() {
+    if (!props.isGameOver && props.isLastGuessIncorrect) {
+      return (
+        <>
+          <p>{getFarewellText(languages[props.wrongGuessCount - 1].name)}</p>
+        </>
+      );
+    }
+
     if (!props.isGameOver) {
       return null;
     }
@@ -29,6 +40,8 @@ export default function Status(props) {
         </>
       );
     }
+
+    return null;
   }
   
   return (
