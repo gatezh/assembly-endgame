@@ -105,6 +105,10 @@ header > p {
   margin-right: 4px;
 }
 
+.word .letter.notGuessed {
+  background-color: #C15445;
+}
+
 /* a11y section */
 .sr-only {
     position: absolute;

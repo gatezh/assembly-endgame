@@ -55,6 +55,7 @@ function App() {
       <Word
         word={currentWord}
         triedLetters={triedLetters}
+        isGameLost={isGameLost}
       />
       {/* Combined visually-hidden aria-live region for status updates */}
       <section

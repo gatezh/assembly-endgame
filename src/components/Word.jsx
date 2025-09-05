@@ -1,15 +1,23 @@
 import { nanoid } from "nanoid";
+import clsx from "clsx";
 
 export default function Word(props) {
   const letters = props.word.split('').map(letter => {
-    const isCorrect = props.triedLetters.includes(letter);
+    const isCorrectLetter = props.triedLetters.includes(letter);
+
+    function renderLetter() {
+      const shouldRevelLetter = props.isGameLost || isCorrectLetter;
+      return shouldRevelLetter ? letter.toUpperCase() : '';
+    }
 
     return (
       <span
         key={nanoid()}
-        className="letter"
+        className={clsx("letter",
+          { notGuessed: props.isGameLost && !isCorrectLetter })
+        }
         >
-          {isCorrect ? letter.toUpperCase() : ''}
+          {renderLetter()}
       </span>
     )}
   )
